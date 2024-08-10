@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
+import Modal from "react-modal";
 import connexion from "../services/connexion";
+import VoirPlusModal from "../components/VoirPlusModal";
+
 import "../styles/Poster.css";
+import "../styles/VoirPlusModal.css";
+
+Modal.setAppElement("#root");
 
 function Poster() {
   const [posters, setPosters] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedPoster, setSelectedPoster] = useState(null);
 
   useEffect(() => {
     connexion
@@ -12,25 +20,48 @@ function Poster() {
         setPosters(response.data);
       })
       .catch((error) => {
-        console.error("There was an error fetching the users!", error);
+        console.error("There was an error fetching the posters!", error);
       });
   }, []);
 
+  const openModal = (poster) => {
+    setSelectedPoster(poster);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedPoster(null);
+    setModalIsOpen(false);
+  };
+
   return (
     <div className="poster-container">
-      <h1>Posters</h1>
-      <ul className="poster-list">
-        {posters.map((poster) => (
-          <li key={poster.id} className="poster-item">
-            <h2>{poster.title}</h2>
-            <p>{poster.description}</p>
+      {posters.map((poster) => (
+        <div key={poster.id} className="poster-item">
+          <div className="poster-image-container">
             <img
               src={`${import.meta.env.VITE_API_URL}/${poster.image_url}`}
               alt={poster.image_alt}
+              className="poster-image"
             />
-          </li>
-        ))}
-      </ul>
+            <button
+              type="button"
+              className="view-more-button"
+              onClick={() => openModal(poster)}
+              aria-label={`Voir plus sur ${poster.title}`}
+              tabIndex="0"
+            >
+              Voir Plus
+            </button>
+          </div>
+        </div>
+      ))}
+
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        {selectedPoster && (
+          <VoirPlusModal poster={selectedPoster} onCloseModal={closeModal} />
+        )}
+      </Modal>
     </div>
   );
 }

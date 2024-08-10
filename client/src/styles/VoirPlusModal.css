@@ -1,0 +1,67 @@
+/* Styles pour le Modal */
+.ReactModal__Overlay {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fond semi-transparent pour l'arrière-plan */
+}
+
+.ReactModal__Content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  max-width: 600px; /* Largeur maximale du modal */
+  max-height: 80vh; /* Hauteur maximale du modal */
+  background: white; /* Fond blanc pour le modal */
+  border-radius: 15px; /* Bordures arrondies du modal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère autour du modal */
+  overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease; /* Animation de transition */
+  opacity: 0;
+  transform: scale(0.9);
+  color: black;
+}
+
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.ReactModal__Content h2 {
+  margin-top: 0;
+}
+
+.ReactModal__Content img {
+  width: 40%;
+  border-radius: 10px; /* Bordures arrondies pour les images dans le modal */
+  margin-top: 20px; /* Espacement au-dessus de l'image */
+}
+
+.ReactModal__Content button {
+  background-color: #007bff; /* Couleur de fond du bouton */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  display: block; /* Assure que le bouton occupe toute la largeur disponible */
+  margin-left: auto; /* Centre le bouton */
+  margin-right: auto;
+}
+
+.ReactModal__Content button:hover,
+.ReactModal__Content button:focus {
+  background-color: #0056b3; /* Couleur de fond au survol ou au focus */
+  outline: none; /* Supprime le contour par défaut au focus */
+}

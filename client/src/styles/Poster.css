@@ -1,36 +1,70 @@
 .poster-container {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Ajoute de l'espace entre les cartes */
 }
 
 .poster-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .poster-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 200px; /* Ajuste la largeur de la carte */
+  height: 300px; /* Ajuste la hauteur de la carte */
+  border-radius: 15px; /* Bordure arrondie */
+  overflow: hidden; /* Cache les débordements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'effet de carte */
+  background: white; /* Couleur de fond de la carte */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Animation de transition */
 }
 
-.poster-item h2 {
-  margin: 0 0 10px;
+.poster-item:hover {
+  transform: scale(1.05); /* Agrandissement léger au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
 }
 
-.poster-item p {
-  margin: 0 0 10px;
+.poster-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.poster-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
+}
+
+.view-more-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  color: white;
+  border: none;
+  padding: 10px 15px; /* Ajuste le padding */
+  border-radius: 5px; /* Bordures arrondies du bouton */
+  cursor: pointer;
+  font-size: 14px; /* Taille de la police du bouton */
+  text-align: center; /* Centre le texte du bouton */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre légère pour le bouton */
+}
+
+.view-more-button:hover,
+.view-more-button:focus {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Changement de couleur au survol/focus */
 }
