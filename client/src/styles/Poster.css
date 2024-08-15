@@ -1,0 +1,51 @@
+.poster-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Ajoute de l'espace entre les cartes */
+}
+
+.poster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.poster-item {
+  position: relative;
+  width: 200px; /* Ajuste la largeur de la carte */
+  height: 300px; /* Ajuste la hauteur de la carte */
+  border-radius: 15px; /* Bordure arrondie */
+  overflow: hidden; /* Cache les débordements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'effet de carte */
+  background: white; /* Couleur de fond de la carte */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Animation de transition */
+}
+
+.poster-item:hover {
+  transform: scale(1.05); /* Agrandissement léger au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
+}
+
+.poster-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
+}
+
+.title {
+  font-family: var(--font-title);
+  display: flex;
+  justify-content: center;
+}

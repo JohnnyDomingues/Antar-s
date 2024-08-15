@@ -1,0 +1,159 @@
+/* Conteneur du carousel */
+#carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ajustez la hauteur du carousel selon vos besoins */
+}
+
+/* Conteneur des éléments du carousel */
+.carousel-items {
+  display: flex;
+  will-change: transform; /* Indique que la transformation est prévue pour améliorer les performances */
+  transition: transform 0.5s ease-in-out; /* Ajoute une transition fluide */
+  width: 100%; /* Ajuste si nécessaire pour s'adapter aux éléments */
+}
+
+/* Style des éléments individuels du carousel */
+.item {
+  flex: 0 0 33.333%; /* Affiche 3 éléments visibles */
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 8px; /* Réduit le border-radius */
+  position: relative;
+  height: 600px; /* Augmente la hauteur des éléments du carousel */
+  display: flex;
+  justify-content: center; /* Centre horizontalement le contenu */
+  align-items: center; /* Centre verticalement le contenu */
+  overflow: hidden;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease; /* Ajoute une transition fluide pour les éléments */
+}
+
+/* Style de l'image et du conteneur de l'image */
+.item-image {
+  width: 62%;
+  height: 95%;
+  border-radius: 6px; /* Réduit le border-radius des images */
+  border: 2px solid white; /* Ajoute un bord bleu autour des images */
+  position: relative;
+  overflow: hidden; /* Assure que le bouton reste dans les limites de l'image */
+  background-size: cover; /* Assure que l'image couvre entièrement le conteneur */
+  background-position: center; /* Centre l'image dans le conteneur */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  display: flex; /* Utilisez flex pour centrer le bouton */
+  justify-content: center; /* Centre horizontalement le bouton */
+  align-items: center; /* Centre verticalement le bouton */
+}
+
+/* Animation des images au survol */
+.item-image:hover {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.3s ease;
+  transform: scale(1.05); /* Agrandit légèrement l'image au survol */
+}
+
+/* Style du bouton Voir Plus */
+.see-more-button {
+  position: absolute;
+  bottom: 10px; /* Positionne le bouton au bas de l'image */
+  left: 50%; /* Centre le bouton horizontalement */
+  transform: translateX(-50%); /* Centre le bouton horizontalement */
+  background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond du bouton */
+  color: rgb(238, 3, 3);
+  border: 1px solid transparent;
+  border-radius: 8px; /* Bordure arrondie */
+  padding: 0.4em 0.8em;
+  font-size: 1.5em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+/* Affiche la bordure rouge au survol */
+.see-more-button:hover {
+  border-color: rgb(238, 3, 3); /* Couleur de bordure au survol */
+}
+
+/* Styles pour l'infobulle */
+.see-more-button::after {
+  content: "+ d'infos"; /* Texte de l'infobulle */
+  position: absolute;
+  bottom: 125%; /* Place l'infobulle au-dessus du bouton */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Fond semi-transparent pour l'infobulle */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.7em; /* Taille plus petite pour l'infobulle */
+  white-space: nowrap;
+  opacity: 0; /* Infobulle invisible par défaut */
+  visibility: hidden; /* Cache l'infobulle */
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease; /* Transition fluide */
+  pointer-events: none; /* Empêche l'infobulle de bloquer les interactions */
+}
+
+/* Affiche l'infobulle au survol */
+.see-more-button:hover::after {
+  opacity: 1; /* Rend l'infobulle visible */
+  visibility: visible; /* Affiche l'infobulle */
+}
+
+/* Styles pour les niveaux des éléments */
+.item.level0 {
+  transform: scale(1);
+}
+
+.item.level1,
+.item.level-1 {
+  transform: scale(0.9);
+}
+
+.item.level2,
+.item.level-2 {
+  transform: scale(0.8);
+}
+
+/* Styles pour les flèches de navigation */
+.arrow {
+  position: absolute;
+  bottom: 450px; /* Positionne les flèches en bas du carousel */
+  color: white;
+  padding: 0.3em 0.3em;
+  font-size: 1.5em; /* Ajustez la taille de l'icône */
+  cursor: pointer;
+  z-index: 10;
+  transition: border-color 0.25s;
+}
+
+/* Positionne la flèche gauche à gauche du centre */
+.arrow-left {
+  left: calc(
+    50% - 370px
+  ); /* Ajuste le décalage horizontal par rapport au centre */
+}
+
+/* Positionne la flèche droite à droite du centre */
+.arrow-right {
+  left: calc(
+    50% + 290px
+  ); /* Ajuste le décalage horizontal par rapport au centre */
+}
+
+/* Styles pour les flèches au survol */
+.arrow:hover {
+  border-color: #de3edc; /* Couleur de bordure au survol */
+}

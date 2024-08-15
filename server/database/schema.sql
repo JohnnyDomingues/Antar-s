@@ -178,19 +178,6 @@ VALUES (
         11
     );
 
-    INSERT INTO
-    poster (
-        title,
-        description,
-        image_url,
-        genre_id
-    )
-VALUES (
-        'Frankenstein',
-        "Le Dr Victor Frankenstein, obsédé par l'idée de créer la vie, donne naissance à une créature à partir de parties de cadavres. Horrifié par son propre succès, il abandonne la créature, qui erre seule et incomprise. En quête d'acceptation, la créature se heurte à la peur et à la violence des humains. Sa vengeance contre son créateur entraîne une série de tragédies, interrogeant les limites de la science et de l'éthique.",
-        'assets/images/Frankenstein.jpg',
-        1
-    );
 
     INSERT INTO
     poster (

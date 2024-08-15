@@ -10,7 +10,7 @@ const posterActions = require("../controllers/posterActions");
 // const { browse, read, add } = require("../controllers/itemActions");
 
 // Route to get a list of posters
-router.get("/", posterActions.browse);
+router.get("/posters", posterActions.browse);
 
 // Route to get a specific item by ID
 // router.get("/:id", read);
