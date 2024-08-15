@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import connexion from "../services/connexion";
 import VoirPlusModal from "../components/VoirPlusModal";
+import Carousel from "../components/Carousel";
 
 import "../styles/Poster.css";
 import "../styles/VoirPlusModal.css";
@@ -35,28 +36,9 @@ function Poster() {
   };
 
   return (
-    <div className="poster-container">
-      {posters.map((poster) => (
-        <div key={poster.id} className="poster-item">
-          <div className="poster-image-container">
-            <img
-              src={`${import.meta.env.VITE_API_URL}/${poster.image_url}`}
-              alt={poster.image_alt}
-              className="poster-image"
-            />
-            <button
-              type="button"
-              className="view-more-button"
-              onClick={() => openModal(poster)}
-              aria-label={`Voir plus sur ${poster.title}`}
-              tabIndex="0"
-            >
-              Voir Plus
-            </button>
-          </div>
-        </div>
-      ))}
-
+    <div>
+      <h1 className="title">Poster</h1>
+      <Carousel items={posters} onItemClick={openModal} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         {selectedPoster && (
           <VoirPlusModal poster={selectedPoster} onCloseModal={closeModal} />
