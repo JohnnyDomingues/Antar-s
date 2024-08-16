@@ -1,4 +1,14 @@
 -- Active: 1718631178665@@127.0.0.1@3306@antares
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pseudo VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_admin BOOLEAN
+);
+
 CREATE TABLE genre (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL
@@ -13,6 +23,48 @@ CREATE TABLE poster (
     genre_id INT,
     FOREIGN KEY (genre_id) REFERENCES genre (id)
 );
+INSERT INTO
+    user (
+        pseudo,
+        email,
+        password,
+        is_admin
+    )
+VALUES (
+        'john_doe',
+        'johndoe@yopmail.com',
+        '$argon2id$v=19$m=19456,t=2,p=1$IJmFzYqJmmkkJP2FaKwKRw$PKh00nB9Si9vaZ2I/xgzsRqtb4skuPLChhJNCWeizNc',
+        1
+    );
+
+INSERT INTO
+    user (
+        pseudo,
+        email,
+        password,
+        is_admin
+    )
+VALUES (
+        'Bob_Dyl',
+        'bobdyl@yopmail.com',
+        '$argon2id$v=19$m=19456,t=2,p=1$IJmFzYqJmmkkJP2FaKwKRw$PKh00nB9Si9vaZ2I/xgzsRqtb4skuPLChhJNCWeizNc',
+        0
+    );
+
+INSERT INTO
+    user (
+        pseudo,
+        email,
+        password,
+        is_admin
+    )
+VALUES (
+        'Bryan_Cranston',
+        'heinsenberg@yopmail.com',
+        '$argon2id$v=19$m=19456,t=2,p=1$IJmFzYqJmmkkJP2FaKwKRw$PKh00nB9Si9vaZ2I/xgzsRqtb4skuPLChhJNCWeizNc',
+        0
+    );
+
 
 INSERT INTO genre (title) VALUES ('Science-Fiction');
 
