@@ -3,7 +3,7 @@
   margin: auto;
   padding: 20px;
   max-width: 450px; /* Largeur maximale du modal */
-  max-height: 38vh; /* Hauteur maximale du modal */
+  max-height: 35vh; /* Hauteur maximale du modal */
   border-radius: 15px; /* Bordures arrondies du modal */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère autour du modal */
   overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
