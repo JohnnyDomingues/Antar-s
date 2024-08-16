@@ -37,7 +37,7 @@ function Poster() {
 
   return (
     <div>
-      <h1 className="title">Poster</h1>
+      <h1 className="title">Posters</h1>
       <Carousel items={posters} onItemClick={openModal} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         {selectedPoster && (
