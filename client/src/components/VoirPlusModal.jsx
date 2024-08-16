@@ -1,16 +1,14 @@
 import PropTypes from "prop-types";
+import { FaRegWindowClose } from "react-icons/fa";
+import "../styles/VoirPlusModal.css";
 
 function VoirPlusModal({ poster, onCloseModal }) {
   return (
     <div>
       <h2>{poster.title}</h2>
-      <p className="poster-description">{poster.description}</p>
-      <img
-        src={`${import.meta.env.VITE_API_URL}/${poster.image_url}`}
-        alt={poster.image_alt || poster.title}
-      />
-      <button type="button" onClick={onCloseModal}>
-        Fermer
+      <p>{poster.description}</p>
+      <button type="button" onClick={onCloseModal} aria-label="close-button">
+        <FaRegWindowClose />
       </button>
     </div>
   );

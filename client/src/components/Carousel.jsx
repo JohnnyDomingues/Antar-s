@@ -118,7 +118,7 @@ function Item({ poster, level, onItemClick }) {
 Carousel.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       image_url: PropTypes.string.isRequired,
       image_alt: PropTypes.string,
     })
@@ -128,7 +128,7 @@ Carousel.propTypes = {
 
 Item.propTypes = {
   poster: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     image_url: PropTypes.string.isRequired,
     image_alt: PropTypes.string,
   }).isRequired,

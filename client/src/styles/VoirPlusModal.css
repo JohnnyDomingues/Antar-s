@@ -1,20 +1,9 @@
-/* Styles pour le Modal */
-.ReactModal__Overlay {
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Fond semi-transparent pour l'arrière-plan */
-}
-
 .ReactModal__Content {
   position: relative;
   margin: auto;
   padding: 20px;
-  max-width: 600px; /* Largeur maximale du modal */
-  max-height: 80vh; /* Hauteur maximale du modal */
-  background: white; /* Fond blanc pour le modal */
+  max-width: 450px; /* Largeur maximale du modal */
+  max-height: 38vh; /* Hauteur maximale du modal */
   border-radius: 15px; /* Bordures arrondies du modal */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère autour du modal */
   overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
@@ -23,12 +12,13 @@
     transform 0.3s ease; /* Animation de transition */
   opacity: 0;
   transform: scale(0.9);
-  color: black;
+  background-image: url("../assets/images/BackgroundImage1.jpg");
 }
 
 .ReactModal__Content--after-open {
   opacity: 1;
   transform: scale(1);
+  background-image: url("../assets/images/BackgroundImage1.jpg");
 }
 
 .ReactModal__Content--before-close {
@@ -38,8 +28,16 @@
 
 .ReactModal__Content h2 {
   margin-top: 0;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-title);
 }
 
+.ReactModal__Content p {
+  margin-top: 1em;
+  text-align: justify;
+  font-family: var(--font-text);
+}
 .ReactModal__Content img {
   width: 40%;
   border-radius: 10px; /* Bordures arrondies pour les images dans le modal */
@@ -47,21 +45,26 @@
 }
 
 .ReactModal__Content button {
-  background-color: #007bff; /* Couleur de fond du bouton */
-  color: white;
-  border: none;
+  background-color: white;
+  border: 1px solid transparent;
+  color: rgb(238, 2, 2); /* Texte rouge */
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
+  font-size: 1.2em;
+  margin-top: 30px;
   display: block; /* Assure que le bouton occupe toute la largeur disponible */
   margin-left: auto; /* Centre le bouton */
   margin-right: auto;
+  transition:
+    border-color 0.25s,
+    color 0.25s; /* Transition pour une apparence fluide */
 }
 
 .ReactModal__Content button:hover,
 .ReactModal__Content button:focus {
-  background-color: #0056b3; /* Couleur de fond au survol ou au focus */
+  border-color: rgb(238, 2, 2); /* Change le contour en rouge */
+  color: rgb(238, 2, 2); /* Maintient la couleur du texte en rouge */
+  background-color: white; /* Fond blanc conservé */
   outline: none; /* Supprime le contour par défaut au focus */
 }
