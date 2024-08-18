@@ -6,6 +6,7 @@ import { LoginProvider } from "./context/LoginContext";
 
 import Admin from "./pages/Layout/Admin";
 import Login from "./pages/Login";
+import Explore from "./pages/Explore";
 import Poster from "./pages/poster";
 import User from "./pages/adminInterface/User";
 import App from "./App";
@@ -21,8 +22,16 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
+        path: "/explore",
+        element: <Explore />,
+      },
+      {
         path: "/posters",
         element: <Poster />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
@@ -35,10 +44,6 @@ const router = createBrowserRouter([
         element: <User />, // Route pour la gestion des utilisateurs
       },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 
