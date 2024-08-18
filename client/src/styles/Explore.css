@@ -50,13 +50,15 @@
   margin: 0 auto;
 }
 
-/* Gallery section */
 .gallery-section {
   position: relative;
   padding: 160px 20px;
   background: url("../assets/images/BackgroundImage1.jpg") no-repeat center
     center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer le contenu de la gallery-section */
 }
 
 /* Gallery items and quote sections */
@@ -87,13 +89,13 @@
 }
 
 .gallery-item.left {
-  margin-left: 5.7em;
+  margin-right: 12em;
   flex-direction: row;
   background: url("../assets/images/KingKongBackground.jpg");
 }
 
 .gallery-item.right {
-  margin-left: 16em;
+  margin-left: 8em;
   flex-direction: row-reverse;
   background: url("../assets/images/ExMachinaBackground.jpg");
 }
@@ -149,22 +151,20 @@
 
 .enter-button {
   font-family: var(--font-text);
-  background-color: #444;
+  background-color: transparent;
   color: red;
-  border: 2px solid red;
+  border: 1px solid transparent;
   padding: 15px 30px;
   border-radius: 50px;
   font-size: 1.2em;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: border-color 0.25s;
   margin-top: 2.5em;
+  align-self: center;
 }
 
 .enter-button:hover {
-  background-color: #ffd700;
-  color: #444;
+  border-color: rgb(238, 3, 3);
 }
 
 /* Parallax effect for background */

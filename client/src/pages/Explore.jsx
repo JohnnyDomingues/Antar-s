@@ -44,9 +44,9 @@ function Explore() {
         /> */}
         <h1>Explorez l'Art de Laurent Durieux</h1>
         <p className="intro-text">
-          Laurent Durieux est un illustrateur et affichiste français connu pour
-          ses réinterprétations graphiques des classiques du cinéma. Chaque
-          œuvre est une fusion unique de nostalgie et de modernité, capturant
+          Laurent Durieux est un illustrateur et affichiste belge connu pour ses
+          réinterprétations graphiques des classiques du cinéma. Chaque œuvre
+          est une fusion unique de nostalgie et de modernité, capturant
           l'essence des films qu'il illustre.
         </p>
       </div>
@@ -85,7 +85,7 @@ function Explore() {
           </blockquote>
         </div>
         <button type="button" className="enter-button" onClick={handleEnter}>
-          Entrez
+          Explore
         </button>
       </div>
     </div>
