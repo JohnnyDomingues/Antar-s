@@ -1,73 +1,182 @@
-/* src/styles/EnterPage.css */
-
+/* src/styles/Explore.css */
 .enter-page {
   position: relative;
-  height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 300vh; /* Hauteur augmentée pour permettre le défilement */
+  background: #111;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.overlay {
-  position: absolute;
+/* Hero section */
+.hero-section {
+  margin-top: 0.5em;
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background: url("../assets/images/Back-to-the-Future.jpg") no-repeat center
+    center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero-section .portrait {
+  max-width: 300px; /* Ajustez cette taille selon vos besoins */
+  border-radius: 10px; /* Arrondir les coins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Supprimez ou ajustez le bord noir */
+  margin-bottom: 20px;
+}
+
+.hero-section h1 {
+  font-family: var(--font-title);
+  font-size: 2.5em;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-section .intro-text {
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Gallery section */
+.gallery-section {
+  position: relative;
+  padding: 160px 20px;
+  background: url("../assets/images/BackgroundImage1.jpg") no-repeat center
+    center;
+  background-size: cover;
+}
+
+/* Gallery items and quote sections */
+.gallery-item,
+.quote-section {
+  position: relative;
+  width: 80%;
+  margin: 100px auto;
+  opacity: 0;
+  transform: translateY(100px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+
+.gallery-item.in-view,
+.quote-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  flex-direction: row;
+}
+
+.gallery-item.left {
+  margin-left: 5.7em;
+  flex-direction: row;
+  background: url("../assets/images/KingKongBackground.jpg");
+}
+
+.gallery-item.right {
+  margin-left: 16em;
+  flex-direction: row-reverse;
+  background: url("../assets/images/ExMachinaBackground.jpg");
+}
+
+.gallery-item img {
+  max-width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item p {
+  max-width: 45%;
+  padding: 20px;
+  font-family: var(--font-text);
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+}
+
+/* Quote section */
+.quote-section {
+  font-family: var(--font-text);
+  font-size: 1.5em;
+  line-height: 1.6;
+  padding: 20px;
+  border-left: 4px solid white;
+  margin: 100px auto;
+  text-align: center;
+  max-width: 60%;
+  margin-left: 9.3em;
+  font-style: italic;
+}
+
+.quote-section blockquote {
+  margin: 0;
+  font-family: var(--font-text);
+  color: white;
+  font-size: 1.2em;
+  text-align: start;
+}
+
+/* Final section with button */
+/* .final-section {
+  position: relative;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+} */
+
+.enter-button {
+  font-family: var(--font-text);
+  background-color: #444;
+  color: red;
+  border: 2px solid red;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  margin-top: 2.5em;
+}
+
+.enter-button:hover {
+  background-color: #ffd700;
+  color: #444;
+}
+
+/* Parallax effect for background */
+.parallax {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Sombre pour un texte lisible */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content {
-  text-align: center;
-  color: white;
-  padding: 20px;
-  max-width: 600px;
-  z-index: 2;
-  animation: fadeIn 2s ease-in-out;
-}
-
-h1 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  font-family: var(--font-title);
-}
-
-p {
-  font-family: var(--font-text);
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.enter-button {
-  background-color: rgba(238, 3, 3, 0.7);
-  color: white;
-  border: 2px solid transparent;
-  border-radius: 50px;
-  padding: 10px 30px;
-  font-family: var(--font-text);
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.enter-button:hover {
-  background-color: rgba(238, 3, 3, 1);
-  border-color: white;
-  box-shadow: 0 0 15px rgba(238, 3, 3, 0.5);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background: url("../assets/images/ParallaxBackground.jpg") no-repeat center
+    center;
+  background-size: cover;
+  z-index: -1;
+  will-change: transform;
 }
