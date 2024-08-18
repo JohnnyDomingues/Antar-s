@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BiLogIn } from "react-icons/bi";
 import connexion from "../services/connexion";
 import { useLogin } from "../context/LoginContext";
 import "../styles/FormConnection.css";
@@ -41,6 +42,7 @@ function FormConnection() {
 
   return (
     <main className="form-connection">
+      <h1>Connexion</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
@@ -69,8 +71,8 @@ function FormConnection() {
           </label>
         </div>
         <div className="box-button">
-          <button className="button" type="submit">
-            Se Connecter
+          <button className="button" type="submit" aria-label="button">
+            <BiLogIn />
           </button>
         </div>
       </form>
