@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Explore.css";
+import { PiArrowSquareDown } from "react-icons/pi";
 // import PortraitDurieux2 from "../assets/images/PortraitDurieux2.jpg";
 import KingKong from "../assets/images/KingKong.jpg";
 import ExMachina from "../assets/images/ExMachina.jpg";
+import LeParrain from "../assets/images/LeParrain.jpg";
 
 function Explore() {
   const navigate = useNavigate();
@@ -69,7 +71,7 @@ function Explore() {
         </div>
 
         <div className="gallery-item right" data-scroll>
-          <img src={ExMachina} alt="Affiche 2" className="poster" />
+          <img src={LeParrain} alt="Affiche 2" className="poster" />
           <p>
             "[...] They communicate much without words, and stand alongside the
             wonderful tradition of illustrative art." <br />
@@ -81,9 +83,29 @@ function Explore() {
           <blockquote>
             "Laurent Durieux captures the essence of cinema like few others."
             <br />
-            Quentin Tarantino
+            The Washington Post
           </blockquote>
         </div>
+        {/* Nouvelle section ajoutée */}
+        <div className="gallery-item left new-item" data-scroll>
+          <img src={ExMachina} alt="Affiche 3" className="poster" />
+          <p>
+            "This new work showcases a different aspect of cinema, blending old
+            and new techniques in a unique way."
+            <br />
+            CHRISTOPHER NOLAN
+          </p>
+        </div>
+
+        <div className="quote-section right new-item" data-scroll>
+          <blockquote>
+            "A fresh perspective on cinematic art, pushing boundaries." <br />
+            Film Critic
+          </blockquote>
+        </div>
+        <p className="text-enter">
+          <PiArrowSquareDown />
+        </p>
         <button type="button" className="enter-button" onClick={handleEnter}>
           Explore
         </button>
