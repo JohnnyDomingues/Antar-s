@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Explore.css";
 import { PiArrowSquareDown } from "react-icons/pi";
 // import PortraitDurieux2 from "../assets/images/PortraitDurieux2.jpg";
@@ -106,9 +106,11 @@ function Explore() {
         <p className="text-enter">
           <PiArrowSquareDown />
         </p>
-        <button type="button" className="enter-button" onClick={handleEnter}>
-          Explore
-        </button>
+        <Link to="/register">
+          <button type="button" className="enter-button" onClick={handleEnter}>
+            Sign up
+          </button>
+        </Link>
       </div>
     </div>
   );

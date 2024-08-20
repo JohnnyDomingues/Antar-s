@@ -11,6 +11,8 @@ import Poster from "./pages/poster";
 import User from "./pages/adminInterface/User";
 import App from "./App";
 import Layout from "./components/Layout"; // Assurez-vous que le chemin est correct
+import Register from "./pages/Register";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
     ],
   },

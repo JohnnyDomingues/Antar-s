@@ -1,0 +1,140 @@
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Style de la carte de film */
+.movie-card {
+  display: flex;
+  align-items: center;
+  margin-left: 0.2em;
+  margin-top: 5em;
+}
+
+.movie-card img {
+  max-width: 89%;
+  height: auto;
+  border-radius: 8px; /* Arrondir les coins de l'image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre autour de l'image */
+}
+
+/* Container principal pour centrer le formulaire */
+.form-signup {
+  background-color: rgba(0, 0, 0, 0.75); /* Fond semi-transparent */
+  padding: 40px 60px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px;
+  margin-top: 5em;
+  margin-right: 2em;
+}
+
+.form-signup h1 {
+  font-family: var(--font-title);
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-input-group {
+  margin-bottom: 20px; /* Assure un espacement uniforme */
+}
+
+.form-input-group input[type="text"],
+.form-input-group input[type="email"],
+.form-input-group input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: red;
+  outline: none;
+}
+
+.form-input-group input[type="text"]::placeholder,
+.form-input-group input[type="email"]::placeholder,
+.form-input-group input[type="password"]::placeholder {
+  color: white;
+}
+
+.error-message {
+  color: red;
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: green;
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  margin-top: 10px;
+  animation: fadeOut 2s ease-in-out 2s forwards; /* Animation pour disparition progressive */
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.register-button {
+  margin-top: 20px;
+}
+
+/* Style du bouton d'inscription */
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond du bouton */
+  color: rgb(238, 3, 3);
+  border: 1px solid transparent;
+  border-radius: 8px; /* Bordure arrondie */
+  padding: 0.4em 0.8em;
+  font-size: 1.5em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 100%; /* S'adapte à la largeur du parent */
+}
+
+.button:hover {
+  border-color: rgb(238, 3, 3); /* Couleur de bordure au survol */
+}
+
+/* Pour s'assurer que l'espacement est uniforme entre les inputs */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espace entre pseudo et email */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .form-signup {
+    padding: 30px 40px;
+  }
+
+  .form-signup h1 {
+    font-size: 1.8em;
+  }
+
+  .button {
+    font-size: 1.1em;
+  }
+}

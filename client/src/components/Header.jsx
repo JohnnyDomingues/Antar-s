@@ -13,9 +13,14 @@ function Header() {
           Posters
         </Link>
 
-        <div className="header-auth">
+        <div>
           <Link to="/login">
             <p className="header-login-button">Login</p>
+          </Link>
+        </div>
+        <div>
+          <Link to="/register">
+            <p className="header-signUp-button">Sign up</p>
           </Link>
         </div>
       </nav>
