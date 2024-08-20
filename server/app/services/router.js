@@ -24,6 +24,8 @@ router.post("/login", validateLogin, userActions.login);
 // Route to get a list of posters
 router.get("/posters", posterActions.browse);
 
+router.post("/register", userActions.create);
+
 // Route to get a specific item by ID
 // router.get("/:id", read);
 

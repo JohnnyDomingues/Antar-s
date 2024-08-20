@@ -1,6 +1,13 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 19 * 2 ** 10,
+  timeCost: 2,
+  parallelism: 1,
+};
+
 // Import access to database tables
 const tables = require("../../database/tables");
 
@@ -72,6 +79,29 @@ const create = async (req, res, next) => {
 };
 */
 
+const create = async (req, res, next) => {
+  // Extract the item data from the request body
+  const user = req.body;
+
+  try {
+    const hashedPassword = await argon2.hash(user.password, hashingOptions);
+
+    // Modify user data to include hashed password
+    const userData = {
+      ...user,
+      password: hashedPassword,
+    };
+
+    // Insert the item into the database
+    await tables.user.create(userData);
+
+    // Respond with HTTP 200 (OK) and the user data (without password)
+    res.sendStatus(201);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 /**
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
@@ -122,4 +152,5 @@ module.exports = {
   browse,
   destroy,
   login,
+  create,
 };

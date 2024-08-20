@@ -47,7 +47,7 @@
 
 .form-connection input[type="email"]::placeholder,
 .form-connection input[type="password"]::placeholder {
-  color: white;
+  color: rgb(184, 180, 180);
 }
 
 .box-button {
