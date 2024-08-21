@@ -13,7 +13,8 @@
 }
 
 body {
-  background-image: url("../src/assets/images/BackgroundImage1.jpg");
+  background-color: #fff;
+  /* background-image: url("../src/assets/images/BackgroundImage2.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

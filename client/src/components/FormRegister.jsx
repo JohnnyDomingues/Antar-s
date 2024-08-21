@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { LuPenSquare } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
 import "../styles/FormSignUp.css";
-import TheDarkKnight from "../assets/images/TheDarkKnight.jpg";
+import TheBear from "../assets/images/TheBear.mp4";
 
 function FormRegister() {
   const [registerData, setRegisterData] = useState({
@@ -14,7 +14,7 @@ function FormRegister() {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); // Hook pour la redirection
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,25 +38,19 @@ function FormRegister() {
       await connexion.post("api/register", registerData);
       setSuccess("Registration successful!");
       setTimeout(() => {
-        navigate("/home"); // Redirection vers la page d'accueil après 2 secondes
-      }, 2000);
-      setRegisterData({
-        pseudo: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-      });
+        navigate("/home");
+      }, 2000); // Rediriger après 2 secondes
     } catch (err) {
-      setError("Erreur lors de l'inscription.");
+      setError("Registration error.");
     }
   };
 
   return (
-    <div className="register-page">
-      <div className="movie-card">
-        <img src={TheDarkKnight} alt="Movie Poster" />
+    <main className="form-signup-container">
+      <div className="video-container">
+        <video src={TheBear} autoPlay muted loop className="background-video" />
       </div>
-      <main className="form-signup">
+      <div className="form-signup">
         <h1>Sign up</h1>
         <form onSubmit={handleSubmit}>
           <div className="user-info">
@@ -111,14 +105,14 @@ function FormRegister() {
           </div>
           {error && <p className="error-message">{error}</p>}
           {success && <p className="success-message">{success}</p>}
-          <div className="box-button">
-            <button className="button" type="submit" aria-label="Register">
+          <div className="register-button">
+            <button className="button" type="submit" aria-label="button">
               <LuPenSquare />
             </button>
           </div>
         </form>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
 
