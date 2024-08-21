@@ -13,8 +13,8 @@
 }
 
 body {
-  background-image: url("../src/assets/images/BackgroundImage1.jpg");
-  background-size: cover;
+  background-image: url("../src/assets/images/BackgroundImage6.jpg");
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

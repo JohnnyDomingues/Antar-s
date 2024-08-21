@@ -9,6 +9,7 @@
   max-width: 400px; /* Limite la largeur pour éviter d'être trop large sur grand écran */
   margin: auto;
   margin-top: 15em;
+  border: 0.5px solid white;
 }
 
 .form-connection h1 {
