@@ -63,16 +63,16 @@ class UserRepository extends AbstractRepository {
   // TODO: Implement the update operation to modify an existing user
   // La méthode pour mettre à jour un utilisateur
 
-  // async update(user) {
-  //   // Execute the SQL UPDATE query to update a specific category
-  //   const [result] = await this.database.query(
-  //     `update ${this.table} set pseudo = ?, email = ? where id = ?`,
-  //     [user.pseudo, user.email, user.id]
-  //   );
+  async update(user) {
+    // Execute the SQL UPDATE query to update a specific category
+    const [result] = await this.database.query(
+      `update ${this.table} set pseudo = ?, profile_image_url= ?, password=? where id = ?`,
+      [user.pseudo, user.profile_image_url, user.password, user.id]
+    );
 
-  //   // Return how many rows were affected
-  //   return result.affectedRows;
-  // }
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 
   // }
 

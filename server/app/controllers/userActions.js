@@ -60,24 +60,6 @@ const login = async (req, res, next) => {
     next(err);
   }
 };
-/**
-// The A of BREAD - Add (Create) operation
-const create = async (req, res, next) => {
-  // Extract the item data from the request body
-  const user = req.body;
-
-  try {
-    // Insert the item into the database
-    const insertId = await tables.user.create(user);
-
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
-*/
 
 const create = async (req, res, next) => {
   // Extract the item data from the request body
@@ -106,21 +88,22 @@ const create = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 
-// const update = async (req, res, next) => {
-//   // Extract the user data from the request body and params
-//   const userId = { ...req.body, id: req.params.id };
+const update = async (req, res, next) => {
+  const { id } = req.params; // Récupère l'ID de l'utilisateur à mettre à jour
+  const userUpdates = req.body;
 
-//   try {
-//     // Update the user in the database
-//     await tables.user.update(userId);
+  try {
+    const result = await tables.user.update({ ...userUpdates, id });
 
-//     // Respond with HTTP 204 (No Content)
-//     res.sendStatus(204);
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+    if (result > 0) {
+      res.sendStatus(204); // Si la mise à jour est réussie
+    } else {
+      res.sendStatus(404); // Si l'utilisateur n'est pas trouvé
+    }
+  } catch (err) {
+    next(err); // Passe l'erreur au middleware de gestion des erreurs
+  }
+};
 
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
@@ -152,5 +135,5 @@ module.exports = {
   destroy,
   login,
   create,
-  // update,
+  update,
 };

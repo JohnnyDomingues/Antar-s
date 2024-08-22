@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import connexion from "../services/connexion";
+import { useLogin } from "../context/LoginContext";
 import "../styles/Profile.css";
 
 function Profile() {
+  const { user, setUser } = useLogin();
   const [userInfo, setUserInfo] = useState({
-    pseudo: "",
-    bio: "",
+    pseudo: user?.pseudo || "",
     password: "",
     newPassword: "",
     confirmNewPassword: "",
@@ -15,13 +17,10 @@ function Profile() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch("/api/profile", {
-          method: "GET",
-          credentials: "include",
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setUserInfo(data);
+        const response = await connexion.get("/api/user"); // Assure-toi que le chemin est correct
+        if (response.status === 200) {
+          setUserInfo(response.data);
+          setUser(response.data); // Met à jour le contexte avec les données utilisateur
         }
       } catch (err) {
         console.error("Error fetching user info:", err);
@@ -29,7 +28,7 @@ function Profile() {
     };
 
     fetchUserInfo();
-  }, []);
+  }, [setUser]); // Ajoute setUser dans les dépendances
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,24 +57,38 @@ function Profile() {
   };
 
   const handleSave = async () => {
-    try {
-      const response = await fetch("/api/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(userInfo),
-      });
+    if (userInfo.newPassword !== userInfo.confirmNewPassword) {
+      setMessage("New passwords do not match.");
+      return;
+    }
 
-      if (response.ok) {
+    try {
+      const response = await connexion.put("/api/user", userInfo);
+
+      if (response.status === 204) {
         setMessage("Your profile has been saved successfully!");
+        setUser(userInfo); // Update the user context
       } else {
         setMessage("Failed to save profile. Please try again.");
       }
     } catch (err) {
       console.error("Error saving profile:", err);
       setMessage("An error occurred while saving your profile.");
+    }
+  };
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await connexion.delete("/api/user");
+
+      if (response.status === 204) {
+        setUser(null); // Réinitialise le contexte utilisateur
+        setMessage("Your account has been deleted.");
+      } else {
+        setMessage("Failed to delete account. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error deleting account:", err);
+      setMessage("An error occurred while deleting your account.");
     }
   };
 
@@ -103,23 +116,13 @@ function Profile() {
         </div>
         <div className="profile-info">
           <div className="form-input-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="pseudo">Username</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={userInfo.username}
+              id="pseudo"
+              name="pseudo"
+              value={userInfo.pseudo}
               onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-group">
-            <label htmlFor="bio">Biography</label>
-            <textarea
-              id="bio"
-              name="bio"
-              value={userInfo.bio}
-              onChange={handleChange}
-              rows="4"
             />
           </div>
           <div className="form-input-group">
@@ -158,12 +161,16 @@ function Profile() {
         <button type="button" className="save-button" onClick={handleSave}>
           Save
         </button>
-        <button type="button" className="delete-button">
+        <button
+          type="button"
+          className="delete-button"
+          onClick={handleDeleteAccount}
+        >
           Delete your account
         </button>
       </div>
       {message && (
-        <div id="save-message" style={{ color: "green" }}>
+        <div id="save-message" className="success-message">
           {message}
         </div>
       )}
