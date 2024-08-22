@@ -13,6 +13,8 @@ import App from "./App";
 import Layout from "./components/Layout"; // Assurez-vous que le chemin est correct
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile"; // Assurez-vous que le chemin est correct
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/posters",
-        element: <Poster />,
+        element: (
+          <ProtectedRoute>
+            <Poster />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",
@@ -41,7 +47,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <Home />,
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

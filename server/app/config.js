@@ -125,6 +125,8 @@ app.get("*", (_, res) => {
   res.sendFile(path.join(reactBuildPath, "/index.html"));
 });
 
+// app.use("/uploads", express.static("uploads"));
+
 /* ************************************************************************* */
 
 // Middleware for Error Logging (Uncomment to enable)

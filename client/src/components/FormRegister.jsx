@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LuPenSquare } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../context/LoginContext";
 import connexion from "../services/connexion";
 import "../styles/FormSignUp.css";
 import TheBear from "../assets/images/TheBear.mp4";
@@ -15,6 +16,7 @@ function FormRegister() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useLogin();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,12 +38,21 @@ function FormRegister() {
 
     try {
       await connexion.post("api/register", registerData);
+
+      // Connexion automatique après l'inscription
+      const loginResponse = await connexion.post("api/login", {
+        email: registerData.email,
+        password: registerData.password,
+      });
+
+      setUser(loginResponse.data); // Mettre à jour le contexte avec l'utilisateur connecté
+
       setSuccess("Registration successful!");
       setTimeout(() => {
-        navigate("/home");
-      }, 2000); // Rediriger après 2 secondes
+        navigate("/home"); // Rediriger vers la page d'accueil
+      }, 2000);
     } catch (err) {
-      setError("Registration error.");
+      setError("Registration or login error.");
     }
   };
 

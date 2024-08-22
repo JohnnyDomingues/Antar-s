@@ -102,26 +102,25 @@ const create = async (req, res, next) => {
     next(err);
   }
 };
-/**
+
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 
-const update = async (req, res, next) => {
-  // Extract the user data from the request body and params
-  const userId = { ...req.body, id: req.params.id };
+// const update = async (req, res, next) => {
+//   // Extract the user data from the request body and params
+//   const userId = { ...req.body, id: req.params.id };
 
-  try {
-    // Update the user in the database
-    await tables.user.update(userId);
+//   try {
+//     // Update the user in the database
+//     await tables.user.update(userId);
 
-    // Respond with HTTP 204 (No Content)
-    res.sendStatus(204);
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
-*/
+//     // Respond with HTTP 204 (No Content)
+//     res.sendStatus(204);
+//   } catch (err) {
+//     // Pass any errors to the error-handling middleware
+//     next(err);
+//   }
+// };
 
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
@@ -153,4 +152,5 @@ module.exports = {
   destroy,
   login,
   create,
+  // update,
 };
