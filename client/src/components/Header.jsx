@@ -21,6 +21,9 @@ function Header() {
         <Link to="/posters" className="header-link">
           Posters
         </Link>
+        <Link to="/profile" className="header-link">
+          Profile
+        </Link>
 
         {user ? (
           <button

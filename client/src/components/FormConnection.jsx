@@ -59,7 +59,7 @@ function FormConnection() {
         </div>
         <div>
           <label>
-            Mot de Passe
+            Password
             <input
               type="password"
               placeholder="Mot de passe"
