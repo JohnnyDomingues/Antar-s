@@ -2,12 +2,12 @@
 .enter-page {
   position: relative;
   width: 100%;
-  height: auto; /* Hauteur augmentée pour permettre le défilement */
-  background: #111;
+  height: auto;
   color: white;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  margin-top: 5vh;
 }
 
 /* Hero section */
@@ -31,9 +31,9 @@
 }
 
 .hero-section .portrait {
-  max-width: 300px; /* Ajustez cette taille selon vos besoins */
-  border-radius: 10px; /* Arrondir les coins */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Supprimez ou ajustez le bord noir */
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
 }
 
@@ -60,7 +60,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer le contenu de la gallery-section */
+  align-items: center;
 }
 
 /* Gallery items and quote sections */
@@ -120,7 +120,7 @@
   color: #fff;
 }
 .gallery-item.left.new-item {
-  background: url("../assets/images/NewImageBackground.jpg"); /* Ajoutez l'image de fond pour la nouvelle section */
+  background: url("../assets/images/NewImageBackground.jpg");
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -132,9 +132,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Styles pour la nouvelle section de citation */
 .quote-section.right.new-item {
-  border-left: 4px solid white; /* Style pour la nouvelle citation */
+  border-left: 4px solid white;
   max-width: 60%;
   margin-left: 9.3em;
 }
@@ -146,7 +145,6 @@
   margin: 0 auto;
 }
 
-/* Quote section */
 .quote-section {
   font-family: var(--font-text);
   font-size: 1.5em;
@@ -167,15 +165,6 @@
   font-size: 1.2em;
   text-align: start;
 }
-
-/* Final section with button */
-/* .final-section {
-  position: relative;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-} */
 
 .enter-button {
   font-family: var(--font-text);
@@ -207,4 +196,94 @@
   background-size: cover;
   z-index: -1;
   will-change: transform;
+}
+
+@media (max-width: 450px) {
+  .enter-page {
+    padding: 1px;
+    margin-top: 19vh;
+  }
+
+  .hero-section {
+    padding: 80px 10px;
+    height: auto;
+    width: 100%;
+  }
+
+  .hero-section h1 {
+    font-size: 2em;
+    margin: 15px 0;
+  }
+
+  .hero-section .intro-text {
+    font-size: 1em;
+    max-width: 100%;
+  }
+
+  .gallery-section {
+    padding: 10vh;
+  }
+
+  .gallery-item,
+  .quote-section {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .gallery-item {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item img {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-item p {
+    max-width: 90%;
+    font-size: 1em;
+    padding: 10px 15px;
+    text-align: left;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .gallery-item.left,
+  .gallery-item.right {
+    margin: 0;
+    margin: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    background-position: center;
+  }
+
+  .quote-section {
+    font-size: 1.2em;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .quote-section blockquote {
+    font-size: 1em;
+  }
+
+  .quote-section.right.new-item {
+    margin-right: 12em;
+    margin-top: 0.5em;
+  }
+
+  .enter-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 2em;
+  }
+
+  .parallax {
+    background-size: contain;
+  }
 }

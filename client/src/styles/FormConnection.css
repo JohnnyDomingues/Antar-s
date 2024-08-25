@@ -1,12 +1,12 @@
 /* styles/FormConnection.css */
 
 .form-connection {
-  background-color: rgba(0, 0, 0, 0.75); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.75);
   padding: 40px 60px;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  max-width: 400px; /* Limite la largeur pour éviter d'être trop large sur grand écran */
+  max-width: 400px;
   margin: auto;
   margin-top: 15em;
   border: 0.5px solid white;
@@ -55,39 +55,37 @@
   margin-top: 20px;
 }
 
-/* styles/FormConnection.css */
-
 .button {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond du bouton */
+  background-color: rgba(0, 0, 0, 0.4);
   color: rgb(238, 3, 3);
   border: 1px solid transparent;
-  border-radius: 8px; /* Bordure arrondie */
+  border-radius: 8px;
   padding: 0.4em 0.8em;
   font-size: 1.5em;
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 100%; /* S'adapte à la largeur du parent */
+  width: 100%;
 }
 
 .button svg {
-  margin-right: 8px; /* Espace entre l'icône et le texte */
-  font-size: 1.5em; /* Taille de l'icône */
+  margin-right: 8px;
+  font-size: 1.5em;
 }
 
 /* Affiche la bordure rouge au survol */
 .button:hover {
-  border-color: rgb(238, 3, 3); /* Couleur de bordure au survol */
+  border-color: rgb(238, 3, 3);
 }
 
 /* Affiche l'infobulle au survol */
 .button:hover::after {
-  opacity: 1; /* Rend l'infobulle visible */
-  visibility: visible; /* Affiche l'infobulle */
+  opacity: 1;
+  visibility: visible;
 }
 
 .popup-content {

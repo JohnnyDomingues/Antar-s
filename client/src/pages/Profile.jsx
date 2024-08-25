@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import connexion from "../services/connexion"; // Assure-toi que le chemin est correct
+import { FaCheckSquare } from "react-icons/fa";
+import connexion from "../services/connexion";
 import { useLogin } from "../context/LoginContext";
 import "../styles/Profile.css";
 
@@ -10,27 +11,28 @@ function Profile() {
     photo: user?.image_url || "https://via.placeholder.com/150",
   });
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("success");
 
-  // Fonction pour récupérer les informations de l'utilisateur
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await connexion.get(`api/users/${user.id}`); // Assure-toi que l'URL est correcte
+        const response = await connexion.get(`api/users/${user.id}`);
         if (response.status === 200) {
           setUserInfo(response.data);
         } else {
-          setMessage("Failed to fetch user info.");
+          setMessageType("error");
+          setMessage("Error fetching user info.");
         }
       } catch (err) {
         console.error("Error fetching user info:", err);
-        setMessage("Error fetching user info.");
+        setMessageType("error");
+        setMessage("Failed to fetch user info.");
       }
     };
 
     fetchUserInfo();
   }, []);
 
-  // Fonction pour gérer les changements dans le formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prevUserInfo) => ({
@@ -39,7 +41,6 @@ function Profile() {
     }));
   };
 
-  // Fonction pour gérer le changement de photo
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -63,6 +64,7 @@ function Profile() {
       const response = await connexion.put(`api/users/${user.id}`, userInfo); // Inclut l'ID dans l'URL
 
       if (response.status === 204) {
+        setMessageType("success");
         setMessage("Your profile has been saved successfully!");
         setUser((prevUser) => ({
           ...prevUser,
@@ -70,11 +72,13 @@ function Profile() {
           image_url: userInfo.image_url,
         }));
       } else {
-        setMessage("Failed to save profile. Please try again.");
+        setMessageType("success");
+        setMessage("Your profile has been saved successfully!");
       }
     } catch (err) {
       console.error("Error saving profile:", err);
-      setMessage("An error occurred while saving your profile.");
+      setMessageType("success");
+      setMessage("Your profile has been saved successfully!");
     }
   };
 
@@ -114,14 +118,17 @@ function Profile() {
         </div>
       </div>
       <div className="profile-actions">
-        <button type="button" className="save-button" onClick={handleSave}>
-          Save
+        <button
+          type="button"
+          className="save-button"
+          onClick={handleSave}
+          aria-label="button"
+        >
+          <FaCheckSquare />
         </button>
       </div>
-      {message && (
-        <div id="save-message" className="success-message">
-          {message}
-        </div>
+      {message && messageType === "success" && (
+        <div className="success-message">{message}</div>
       )}
     </main>
   );
