@@ -8,8 +8,8 @@ function Header() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUser(null); // Déconnecte l'utilisateur
-    navigate("/"); // Redirige vers la page d'accueil après déconnexion
+    setUser(null);
+    navigate("/");
   };
 
   return (
