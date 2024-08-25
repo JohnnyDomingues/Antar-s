@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import connexion from "../services/connexion";
+import connexion from "../services/connexion"; // Assure-toi que le chemin est correct
 import { useLogin } from "../context/LoginContext";
 import "../styles/Profile.css";
 
@@ -7,29 +7,30 @@ function Profile() {
   const { user, setUser } = useLogin();
   const [userInfo, setUserInfo] = useState({
     pseudo: user?.pseudo || "",
-    password: "",
-    newPassword: "",
-    confirmNewPassword: "",
-    photo: "https://via.placeholder.com/150",
+    photo: user?.image_url || "https://via.placeholder.com/150",
   });
   const [message, setMessage] = useState("");
 
+  // Fonction pour récupérer les informations de l'utilisateur
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await connexion.get("/api/user"); // Assure-toi que le chemin est correct
+        const response = await connexion.get(`api/users/${user.id}`); // Assure-toi que l'URL est correcte
         if (response.status === 200) {
           setUserInfo(response.data);
-          setUser(response.data); // Met à jour le contexte avec les données utilisateur
+        } else {
+          setMessage("Failed to fetch user info.");
         }
       } catch (err) {
         console.error("Error fetching user info:", err);
+        setMessage("Error fetching user info.");
       }
     };
 
     fetchUserInfo();
-  }, [setUser]); // Ajoute setUser dans les dépendances
+  }, []);
 
+  // Fonction pour gérer les changements dans le formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prevUserInfo) => ({
@@ -38,11 +39,11 @@ function Profile() {
     }));
   };
 
+  // Fonction pour gérer le changement de photo
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
-        alert("Please select a valid image file.");
         return;
       }
       const reader = new FileReader();
@@ -56,39 +57,24 @@ function Profile() {
     }
   };
 
+  // Fonction pour sauvegarder les informations utilisateur
   const handleSave = async () => {
-    if (userInfo.newPassword !== userInfo.confirmNewPassword) {
-      setMessage("New passwords do not match.");
-      return;
-    }
-
     try {
-      const response = await connexion.put("/api/user", userInfo);
+      const response = await connexion.put(`api/users/${user.id}`, userInfo); // Inclut l'ID dans l'URL
 
       if (response.status === 204) {
         setMessage("Your profile has been saved successfully!");
-        setUser(userInfo); // Update the user context
+        setUser((prevUser) => ({
+          ...prevUser,
+          pseudo: userInfo.pseudo,
+          image_url: userInfo.image_url,
+        }));
       } else {
         setMessage("Failed to save profile. Please try again.");
       }
     } catch (err) {
       console.error("Error saving profile:", err);
       setMessage("An error occurred while saving your profile.");
-    }
-  };
-  const handleDeleteAccount = async () => {
-    try {
-      const response = await connexion.delete("/api/user");
-
-      if (response.status === 204) {
-        setUser(null); // Réinitialise le contexte utilisateur
-        setMessage("Your account has been deleted.");
-      } else {
-        setMessage("Failed to delete account. Please try again.");
-      }
-    } catch (err) {
-      console.error("Error deleting account:", err);
-      setMessage("An error occurred while deleting your account.");
     }
   };
 
@@ -125,48 +111,11 @@ function Profile() {
               onChange={handleChange}
             />
           </div>
-          <div className="form-input-group">
-            <label htmlFor="password">Current password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={userInfo.password}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-group">
-            <label htmlFor="newPassword">New Password</label>
-            <input
-              type="password"
-              id="newPassword"
-              name="newPassword"
-              value={userInfo.newPassword}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-group">
-            <label htmlFor="confirmNewPassword">Confirm new password</label>
-            <input
-              type="password"
-              id="confirmNewPassword"
-              name="confirmNewPassword"
-              value={userInfo.confirmNewPassword}
-              onChange={handleChange}
-            />
-          </div>
         </div>
       </div>
       <div className="profile-actions">
         <button type="button" className="save-button" onClick={handleSave}>
           Save
-        </button>
-        <button
-          type="button"
-          className="delete-button"
-          onClick={handleDeleteAccount}
-        >
-          Delete your account
         </button>
       </div>
       {message && (

@@ -15,7 +15,7 @@ const { validateLogin } = require("./validation/user");
 // Route pour récupérer les informations d'un utilisateur
 
 // Route to update informations users
-router.put("/user/:id", userActions.update);
+router.put("/users/:id", userActions.update);
 
 // Route to get a list of users
 router.get("/users", checkCookie, checkAdmin, userActions.browse);

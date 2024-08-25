@@ -39,17 +39,16 @@ function FormRegister() {
     try {
       await connexion.post("api/register", registerData);
 
-      // Connexion automatique après l'inscription
       const loginResponse = await connexion.post("api/login", {
         email: registerData.email,
         password: registerData.password,
       });
 
-      setUser(loginResponse.data); // Mettre à jour le contexte avec l'utilisateur connecté
+      setUser(loginResponse.data);
 
       setSuccess("Registration successful!");
       setTimeout(() => {
-        navigate("/home"); // Rediriger vers la page d'accueil
+        navigate("/posters");
       }, 2000);
     } catch (err) {
       setError("Registration or login error.");
