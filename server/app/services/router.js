@@ -10,9 +10,6 @@ const userActions = require("../controllers/userActions");
 
 const { checkCookie, checkAdmin } = require("./checkAuth");
 const { validateLogin } = require("./validation/user");
-// Import item-related actions
-// const { browse, read, add } = require("../controllers/itemActions");
-// Route pour récupérer les informations d'un utilisateur
 
 // Route to update informations users
 router.put("/users/:id", userActions.update);
@@ -29,12 +26,6 @@ router.post("/login", validateLogin, userActions.login);
 router.get("/posters", posterActions.browse);
 
 router.post("/register", userActions.create);
-
-// Route to get a specific item by ID
-// router.get("/:id", read);
-
-// Route to add a new item
-// router.post("/", add);
 
 /* ************************************************************************* */
 

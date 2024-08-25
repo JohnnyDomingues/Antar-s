@@ -1,36 +1,36 @@
 /* Conteneur principal pour aligner la vidéo et le formulaire */
 .form-signup-container {
-  display: flex; /* Utilise Flexbox pour aligner les enfants en ligne */
-  justify-content: center; /* Centre les éléments horizontalement */
-  align-items: center; /* Centre les éléments verticalement */
-  gap: 20px; /* Espace entre la vidéo et le formulaire */
-  min-height: 100vh; /* Assure que le conteneur occupe toute la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
   padding: 20px;
 }
 
 /* Conteneur pour la vidéo */
 .video-container {
-  flex: 1; /* Prend la même largeur que le formulaire */
-  max-width: 53.5%; /* Limite la largeur maximale de la vidéo à 40% du conteneur parent */
-  padding: 10px; /* Ajoute du padding autour de la vidéo si nécessaire */
+  flex: 1;
+  max-width: 53.5%;
+  padding: 10px;
 }
 
 .background-video {
-  width: 100%; /* Prend toute la largeur du conteneur parent */
-  height: auto; /* La hauteur s'ajuste proportionnellement à la largeur */
-  object-fit: cover; /* Assure que la vidéo couvre bien le conteneur */
-  border-radius: 8px; /* Ajoute des coins arrondis si souhaité */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Style du formulaire d'inscription */
 .form-signup {
-  flex: 1; /* Prend la même largeur que la vidéo */
-  background-color: rgba(0, 0, 0, 0.75); /* Fond semi-transparent */
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.75);
   padding: 40px 60px;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  max-width: 400px; /* Limite la largeur maximale du formulaire */
+  max-width: 400px;
   margin-right: 2em;
   border: 1px solid white;
 }
@@ -48,7 +48,7 @@
 }
 
 .form-input-group {
-  margin-bottom: 20px; /* Assure un espacement uniforme */
+  margin-bottom: 20px;
 }
 
 .form-input-group input[type="text"],
@@ -83,7 +83,7 @@
   font-family: var(--font-text);
   font-size: 1.2em;
   margin-top: 10px;
-  animation: fadeOut 2s ease-in-out 2s forwards; /* Animation pour disparition progressive */
+  animation: fadeOut 2s ease-in-out 2s forwards;
 }
 
 @keyframes fadeOut {
@@ -103,36 +103,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond du bouton */
+  background-color: rgba(0, 0, 0, 0.4);
   color: rgb(238, 3, 3);
   border: 1px solid transparent;
-  border-radius: 8px; /* Bordure arrondie */
+  border-radius: 8px;
   padding: 0.4em 0.8em;
   font-size: 1.5em;
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 100%; /* S'adapte à la largeur du parent */
+  width: 100%;
 }
 
 .button:hover {
-  border-color: rgb(238, 3, 3); /* Couleur de bordure au survol */
+  border-color: rgb(238, 3, 3);
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .form-signup-container {
-    flex-direction: column; /* Empile les éléments en colonne sur les petits écrans */
-    align-items: stretch; /* Étire les éléments pour remplir le conteneur */
-  }
-
-  .video-container,
-  .form-signup {
-    max-width: 100%; /* Assure que les éléments ne dépassent pas la largeur de l'écran */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13em;
+    min-height: 70vh;
+    padding-bottom: 5em;
   }
 
   .form-signup {
+    max-width: 100%;
     padding: 20px;
+    margin-right: 0.3em;
   }
 
   .form-signup h1 {
@@ -142,4 +142,10 @@
   .button {
     font-size: 1.1em;
   }
+}
+
+.video-container {
+  margin-bottom: 1em;
+  padding-top: 4em;
+  display: none;
 }

@@ -31,7 +31,7 @@ function Header() {
             className="header-login-button"
             onClick={handleLogout}
           >
-            Log Out
+            Sign Out
           </button>
         ) : (
           <>

@@ -29,9 +29,9 @@ function FormConnection() {
       setUser(user.data);
 
       if (user.data.is_admin) {
-        navigate("/admin/users"); // Redirige les admins vers la page Users
+        navigate("/admin/users");
       } else {
-        navigate("/posters"); // Redirige les non-admins vers la page Posters
+        navigate("/posters");
       }
     } catch (error) {
       console.error("There was an error connecting the user!", error);
@@ -62,7 +62,7 @@ function FormConnection() {
             Password
             <input
               type="password"
-              placeholder="Mot de passe"
+              placeholder="Password"
               name="password"
               value={connect.password}
               onChange={handleChange}

@@ -1,16 +1,20 @@
 .profile-page {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 10em;
+  background-color: rgba(0, 0, 0, 0.75); /* Fond semi-transparent */
+  padding: 40px 60px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px; /* Limite la largeur */
+  margin: auto;
+  margin-top: 15em;
+  border: 0.5px solid white;
 }
 
 .profile-page h1 {
-  text-align: center;
-  color: #333;
+  font-family: var(--font-title);
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .profile-container {
@@ -36,23 +40,24 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.change-photo-input {
+  display: none;
+}
+
 .change-photo-button {
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond du bouton */
+  color: rgb(238, 3, 3);
+  border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 1.2em;
+  font-family: var(--font-text);
 }
 
 .change-photo-button:hover {
-  background-color: #0056b3;
-}
-
-.change-photo-input {
-  display: none;
+  border-color: rgb(238, 3, 3);
 }
 
 .profile-info {
@@ -64,18 +69,27 @@
 }
 
 .form-input-group label {
-  display: block;
+  font-size: 1em;
   margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
+  text-align: left;
+  display: block;
+  color: black;
 }
 
 .form-input-group input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 12px 15px;
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: red;
+  outline: none;
+}
+
+.form-input-group input::placeholder {
+  color: rgb(184, 180, 180);
 }
 
 .profile-actions {
@@ -85,22 +99,21 @@
 }
 
 .save-button {
-  width: 48%;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  align-items: center;
-}
-
-.save-button {
-  background-color: #28a745;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(238, 3, 3);
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  border: 1px solid transparent;
+  border-radius: 8px;
 }
 
 .save-button:hover {
-  background-color: #218838;
+  border-color: rgb(238, 3, 3);
 }
 
 .success-message {
@@ -111,41 +124,20 @@
   border: 1px solid #c3e6cb;
   border-radius: 5px;
   text-align: center;
+  font-family: var(--font-text);
+  font-size: 1.2em;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .profile-page {
-    margin: 30px 10px;
-    padding: 15px;
+    padding: 30px 40px;
   }
 
-  .profile-container {
-    gap: 15px;
-  }
-
-  .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .change-photo-button {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .form-input-group input {
-    padding: 8px;
-    font-size: 14px;
+  .profile-page h1 {
+    font-size: 1.8em;
   }
 
   .save-button {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .success-message {
-    font-size: 14px;
-    padding: 8px;
+    font-size: 1.1em;
   }
 }
