@@ -1,20 +1,27 @@
-/* styles/Profile.css */
 .profile-page {
-  padding: 50px 20px;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  max-width: 800px;
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10em;
+}
+
+.profile-page h1 {
+  text-align: center;
+  color: #333;
 }
 
 .profile-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
 .profile-photo {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,24 +32,31 @@
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
+  border: 4px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .change-photo-button {
-  background: rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
   color: white;
-  border: 1px solid transparent;
-  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 14px;
 }
 
 .change-photo-button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background-color: #0056b3;
+}
+
+.change-photo-input {
+  display: none;
 }
 
 .profile-info {
-  flex-grow: 1;
+  width: 100%;
 }
 
 .form-input-group {
@@ -53,67 +67,85 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #555;
 }
 
-.form-input-group input,
-.form-input-group textarea {
+.form-input-group input {
   width: 100%;
   padding: 10px;
-  font-size: 1em;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #333;
-  color: white;
-  outline: none;
-}
-
-.form-input-group input::placeholder,
-.form-input-group textarea::placeholder {
-  color: #aaa;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .profile-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.save-button,
-.delete-button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  justify-content: center;
+  gap: 10px;
 }
 
 .save-button {
-  background-color: #00cc00;
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+}
+
+.save-button {
+  background-color: #28a745;
   color: white;
 }
 
 .save-button:hover {
-  background-color: #009900;
+  background-color: #218838;
 }
 
-.delete-button {
-  background-color: #cc0000;
-  color: white;
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
 }
 
-.delete-button:hover {
-  background-color: #990000;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .profile-container {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 390px) {
+  .profile-page {
+    margin: 30px 10px;
+    padding: 15px;
   }
 
-  .profile-info {
+  .profile-container {
+    gap: 15px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .change-photo-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .form-input-group input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .save-button {
     width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .success-message {
+    font-size: 14px;
+    padding: 8px;
   }
 }
