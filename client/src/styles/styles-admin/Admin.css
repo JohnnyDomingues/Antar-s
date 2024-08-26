@@ -1,6 +1,6 @@
 .admin-container {
   display: flex;
-  margin-top: 10em;
+  margin-top: 15em;
 }
 
 .admin-table-container {
@@ -64,28 +64,4 @@
 
 .enter-button:hover {
   border-color: rgb(238, 3, 3);
-}
-
-@media (min-width: 490px) {
-  .admin-container {
-    margin-top: 8em;
-  }
-
-  .admin-table-container {
-    max-width: 300px;
-    padding: 30px;
-  }
-
-  .admin-table-container h1 {
-    font-size: 1.2em;
-  }
-
-  .admin-table th,
-  .admin-table td {
-    padding: 12px;
-  }
-
-  .button-delete {
-    font-size: 1.2em;
-  }
 }
