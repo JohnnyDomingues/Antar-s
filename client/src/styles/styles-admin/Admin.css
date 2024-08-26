@@ -1,5 +1,6 @@
 .admin-container {
   display: flex;
+  margin-top: 10em;
 }
 
 .admin-table-container {
@@ -7,15 +8,16 @@
   height: max-content;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.75);
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+  color: white;
 }
 
 .admin-table-container h1 {
   font-family: var(--font-title);
-  color: var(--color-primary);
+  color: white;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -37,14 +39,29 @@
 
 .admin-table th {
   font-family: var(--font-subtitle);
-  background-color: #f2f2f2;
-  color: var(--color-text-primary);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
 }
 
 .admin-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .admin-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.button-delete {
+  background-color: transparent;
+  color: red;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  align-self: center;
+}
+
+.enter-button:hover {
+  border-color: rgb(238, 3, 3);
 }

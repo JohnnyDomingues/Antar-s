@@ -55,8 +55,8 @@
 .gallery-section {
   position: relative;
   padding: 160px 20px;
-  background: url("../src/assets/images/BackgroundImage2.jpg") no-repeat center
-    center;
+  background: url("../src/assets/images/BackgroundImage1.1.jpg") no-repeat
+    center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -184,7 +184,6 @@
   border-color: rgb(238, 3, 3);
 }
 
-/* Parallax effect for background */
 .parallax {
   position: fixed;
   top: 0;

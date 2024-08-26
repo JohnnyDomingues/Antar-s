@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Explore.css";
 import { PiArrowSquareDown } from "react-icons/pi";
-// import PortraitDurieux2 from "../assets/images/PortraitDurieux2.jpg";
 import KingKong from "../assets/images/KingKong.jpg";
 import ExMachina from "../assets/images/ExMachina.jpg";
 import LeParrain from "../assets/images/LeParrain.jpg";
@@ -25,7 +24,7 @@ function Explore() {
 
     window.addEventListener("scroll", handleScroll);
 
-    handleScroll(); // Trigger scroll handler on mount
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -39,11 +38,6 @@ function Explore() {
   return (
     <div className="enter-page">
       <div className="hero-section">
-        {/* <img
-          src={PortraitDurieux2}
-          alt="Laurent Durieux"
-          className="portrait"
-        /> */}
         <h1>Explorez l'Art de Laurent Durieux</h1>
         <p className="intro-text">
           Laurent Durieux est un illustrateur et affichiste belge connu pour ses
@@ -86,7 +80,7 @@ function Explore() {
             The Washington Post
           </blockquote>
         </div>
-        {/* Nouvelle section ajoutée */}
+
         <div className="gallery-item left new-item" data-scroll>
           <img src={ExMachina} alt="Affiche 3" className="poster" />
           <p>
