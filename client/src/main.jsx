@@ -10,20 +10,30 @@ import Explore from "./pages/Explore";
 import Poster from "./pages/poster";
 import User from "./pages/adminInterface/User";
 import App from "./App";
-import Layout from "./components/Layout"; // Assurez-vous que le chemin est correct
+import Layout from "./components/Layout";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile"; // Assurez-vous que le chemin est correct
+import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, // Utilisation du Layout ici
+    element: <Layout />,
     children: [
       {
         path: "/",
         element: <App />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
+        children: [
+          {
+            path: "users",
+            element: <User />,
+          },
+        ],
       },
       {
         path: "/explore",
@@ -60,16 +70,6 @@ const router = createBrowserRouter([
             <Profile />
           </ProtectedRoute>
         ),
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    element: <Admin />, // Utilisez un layout si nécessaire pour la section admin
-    children: [
-      {
-        path: "users",
-        element: <User />, // Route pour la gestion des utilisateurs
       },
     ],
   },

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 function DeleteModalConfirmation({ onDelete, onCancel }) {
   return (
     <div>
-      <h2>Supprimer cet utilisateur ?</h2>
+      <h2>Delete this user?</h2>
       <button type="button" onClick={onDelete}>
-        Oui, supprimer
+        Yep, delete
       </button>
       <button type="button" onClick={onCancel}>
-        Annuler
+        Nope
       </button>
     </div>
   );

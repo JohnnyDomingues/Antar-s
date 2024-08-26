@@ -142,13 +142,12 @@
 /* Positionne la flèche gauche à gauche du centre et la centre verticalement */
 .arrow-left {
   position: absolute;
-  top: 50%; /* Centre verticalement */
+  top: 50%;
   left: calc(51% - 360px);
   transform: translateY(-50%);
   z-index: 10;
 }
 
-/* Positionne la flèche droite à droite du centre et la centre verticalement */
 .arrow-right {
   position: absolute;
   top: 50%;
@@ -156,8 +155,6 @@
   transform: translateY(-50%);
   z-index: 10;
 }
-
-/* Styles pour les flèches au survol */
 .arrow:hover {
   border-color: #de3edc;
 }

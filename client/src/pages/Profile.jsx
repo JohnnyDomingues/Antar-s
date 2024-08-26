@@ -58,10 +58,9 @@ function Profile() {
     }
   };
 
-  // Fonction pour sauvegarder les informations utilisateur
   const handleSave = async () => {
     try {
-      const response = await connexion.put(`api/users/${user.id}`, userInfo); // Inclut l'ID dans l'URL
+      const response = await connexion.put(`api/users/${user.id}`, userInfo);
 
       if (response.status === 204) {
         setMessageType("success");

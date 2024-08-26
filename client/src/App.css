@@ -9,11 +9,11 @@
   --font-title: "Bungee Tint", sans serif;
   --font-subtitle: "inter", sans serif;
   --font-text: "Kanit", sans serif;
-  --font-bold: 800; /* Gras */
+  --font-bold: 800;
 }
 
 body {
-  background-image: url("../src/assets/images/BackgroundImage2.jpg");
+  background-image: url("../src/assets/images/BackgroundImage1.1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
