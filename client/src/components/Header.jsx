@@ -24,8 +24,8 @@ function Header() {
         <Link to="/profile" className="header-link">
           Profile
         </Link>
-        {user && user.isAdmin && (
-          <Link to="/admin" className="header-link">
+        {user && user.is_admin && (
+          <Link to="/admin/users" className="header-link">
             Admin
           </Link>
         )}
