@@ -131,6 +131,7 @@
 @media (max-width: 768px) {
   .profile-page {
     padding: 30px 40px;
+    margin-top: 13em;
   }
 
   .profile-page h1 {
